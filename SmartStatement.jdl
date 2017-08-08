@@ -1,0 +1,75 @@
+entity Constat {
+	DateConstat ZonedDateTime,
+	LieuConstat String,
+	Temoins String,
+	Degats YesNo,
+    DegatsApparent YesNo,
+    Blesses YesNo,
+    PointDeChocInitialA String,
+    ObservationsA String,
+	PointDeChocInitialB String,
+    ObservationsB String,
+	SensSuiviA String,
+    VenantDeA String,
+    AllantAA String,
+	SensSuiviB String,
+    VenantDeB String,
+    AllantAB String
+
+
+}
+
+entity Vehicule {
+	Marque String,
+	Type String,
+    Immatriculation String
+    }
+
+entity Conducteur {
+	Nom String,
+	Prenom String,
+	email String,
+	Tel String,
+	PermisNum Long,
+	LivreeLe ZonedDateTime,
+	Addresse String
+}
+
+entity Assurance {
+	NomAssurance String,
+	NumAssurnance Long,
+	Agence String,
+    ValableAu ZonedDateTime
+}
+
+entity Assuree {
+	NomAssuree String,
+	PrenomsAssuree String,
+	Addresse String,
+    NumTel String
+}
+entity Circonstances {
+	Circonstance String,
+	Description String
+}
+relationship OneToOne {
+	Assuree{vehicule} to Vehicule{assuree},
+	Assuree{vehicleConducteur} to Vehicule{conducteur},
+    Constat{circonstances} to Circonstances{constat}
+}  
+relationship ManyToMany {
+  Constat{conducteurA} to Conducteur{constatA},
+  Constat{conducteurB} to Conducteur{constatB},
+  Constat{vehiculeA} to Vehicule{constatPartA},
+  Constat{vehiculeB} to Vehicule{constatPartB},
+  Constat{assuranceA} to Assurance{constatPartA},
+  Constat{assuranceB} to Assurance{constatPartB},
+  Constat{assureeA} to Assuree{constatPartA},
+  Constat{assureeB} to Assuree{constatPartB},
+  Vehicule{Nom} to Conducteur{vehicule}
+  
+}
+
+enum YesNo {
+    YES, NO
+}

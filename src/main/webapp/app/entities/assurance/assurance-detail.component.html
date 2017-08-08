@@ -1,0 +1,37 @@
+
+<div *ngIf="assurance">
+    <h2><span jhiTranslate="smartStatementApp.assurance.detail.title">Assurance</span> {{assurance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartStatementApp.assurance.nomAssurance">Nom Assurance</span></dt>
+        <dd>
+            <span>{{assurance.nomAssurance}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.assurance.numAssurnance">Num Assurnance</span></dt>
+        <dd>
+            <span>{{assurance.numAssurnance}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.assurance.agence">Agence</span></dt>
+        <dd>
+            <span>{{assurance.agence}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.assurance.valableAu">Valable Au</span></dt>
+        <dd>
+            <span>{{assurance.valableAu | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'assurance/'+ assurance.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,151 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "circonstances",
+            "otherEntityName": "circonstances",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "constat"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatA",
+            "relationshipName": "conducteurA",
+            "otherEntityName": "conducteur",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatB",
+            "relationshipName": "conducteurB",
+            "otherEntityName": "conducteur",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatPartA",
+            "relationshipName": "vehiculeA",
+            "otherEntityName": "vehicule",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatPartB",
+            "relationshipName": "vehiculeB",
+            "otherEntityName": "vehicule",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatPartA",
+            "relationshipName": "assuranceA",
+            "otherEntityName": "assurance",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatPartB",
+            "relationshipName": "assuranceB",
+            "otherEntityName": "assurance",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatPartA",
+            "relationshipName": "assureeA",
+            "otherEntityName": "assuree",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "constatPartB",
+            "relationshipName": "assureeB",
+            "otherEntityName": "assuree",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateConstat",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lieuConstat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temoins",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "degats",
+            "fieldType": "YesNo",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "degatsApparent",
+            "fieldType": "YesNo",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "blesses",
+            "fieldType": "YesNo",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "pointDeChocInitialA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observationsA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pointDeChocInitialB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "observationsB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensSuiviA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "venantDeA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "allantAA",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensSuiviB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "venantDeB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "allantAB",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170731174830",
+    "entityTableName": "constat",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

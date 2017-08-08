@@ -1,0 +1,292 @@
+
+<div *ngIf="constat">
+    <h2><span jhiTranslate="smartStatementApp.constat.detail.title">Constat</span> {{constat.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+
+
+        <table class="table table-striped">
+            <thead>
+
+            </thead>
+            <tbody>
+            <tr>
+                <td> <dt><span jhiTranslate="smartStatementApp.constat.dateConstat">Date Constat</span></dt>
+                    <dd>
+                        <span>{{constat.dateConstat | date:'medium'}}</span>
+                    </dd>
+                </td>
+                <td>
+                    <dt><span jhiTranslate="smartStatementApp.constat.lieuConstat">Lieu Constat</span></dt>
+                    <dd>
+                        <span>{{constat.lieuConstat}}</span>
+                    </dd>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dt><span jhiTranslate="smartStatementApp.constat.temoins">Temoins</span></dt>
+                    <dd>
+                        <span>{{constat.temoins}}</span>
+                    </dd>
+                </td>
+                <td>
+                    <dt><span jhiTranslate="smartStatementApp.constat.degats">Degats</span></dt>
+                    <dd>
+                        <span jhiTranslate="{{'smartStatementApp.YesNo.' + constat.degats}}">{{constat.degats}}</span>
+                    </dd>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dt><span jhiTranslate="smartStatementApp.constat.degatsApparent">Degats Apparent</span></dt>
+                    <dd>
+                        <span jhiTranslate="{{'smartStatementApp.YesNo.' + constat.degatsApparent}}">{{constat.degatsApparent}}</span>
+                    </dd>
+
+                </td>
+                <td>
+                    <dt><span jhiTranslate="smartStatementApp.constat.blesses">Blesses</span></dt>
+                    <dd>
+                        <span jhiTranslate="{{'smartStatementApp.YesNo.' + constat.blesses}}">{{constat.blesses}}</span>
+                    </dd>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dt><span jhiTranslate="smartStatementApp.constat.circonstances">Circonstances</span></dt>
+                    <dd>
+                        <div *ngIf="constat.circonstances">
+                            <a [routerLink]="['/circonstances', constat.circonstances?.id]">{{constat.circonstances?.id}}</a>
+                        </div>
+                    </dd>
+                </td>
+
+            </tr>
+            <tr>
+                        <td>
+                            <table class="table table-striped" style="background-color: #FCFE7C">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.assuranceA">Assurance A</span></dt>
+                                        <dd>
+            <span *ngFor="let assuranceA of constat.assuranceAS; let last = last">
+                <a [routerLink]="['/assurance', assuranceA?.id ]">{{assuranceA.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.conducteurA">Conducteur A</span></dt>
+                                        <dd>
+            <span *ngFor="let conducteurA of constat.conducteurAS; let last = last">
+                <a [routerLink]="['/conducteur', conducteurA?.id ]">{{conducteurA.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.assureeA">Assuree A</span></dt>
+                                        <dd>
+            <span *ngFor="let assureeA of constat.assureeAS; let last = last">
+                <a [routerLink]="['/assuree', assureeA?.id ]">{{assureeA.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.vehiculeA">Vehicule A</span></dt>
+                                        <dd>
+            <span *ngFor="let vehiculeA of constat.vehiculeAS; let last = last">
+                <a [routerLink]="['/vehicule', vehiculeA?.id ]">{{vehiculeA.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.sensSuiviA">Sens Suivi A</span></dt>
+                                        <dd>
+                                            <span>{{constat.sensSuiviA}}</span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.venantDeA">Venant De A</span></dt>
+                                        <dd>
+                                            <span>{{constat.venantDeA}}</span>
+                                        </dd>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.allantAA">Allant AA</span></dt>
+                                        <dd>
+                                            <span>{{constat.allantAA}}</span>
+                                        </dd>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <dt><span jhiTranslate="smartStatementApp.constat.pointDeChocInitialA">Point De Choc Initial A</span></dt>
+                                        <dd>
+                                            <span>{{constat.pointDeChocInitialA}}</span>
+                                        </dd>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.observationsA">Observations A</span></dt>
+                                        <dd>
+                                            <span>{{constat.observationsA}}</span>
+                                        </dd>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+
+
+                            </table>
+
+                        </td>
+
+                        <td>
+                            <table class="table table-striped" style="background-color: #5CFE8C">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.assuranceB">Assurance B</span></dt>
+                                        <dd>
+            <span *ngFor="let assuranceB of constat.assuranceBS; let last = last">
+                <a [routerLink]="['/assurance', assuranceB?.id ]">{{assuranceB.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.conducteurB">Conducteur B</span></dt>
+                                        <dd>
+            <span *ngFor="let conducteurB of constat.conducteurBS; let last = last">
+                <a [routerLink]="['/conducteur', conducteurB?.id ]">{{conducteurB.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.assureeB">Assuree B</span></dt>
+                                        <dd>
+            <span *ngFor="let assureeB of constat.assureeBS; let last = last">
+                <a [routerLink]="['/assuree', assureeB?.id ]">{{assureeB.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.vehiculeB">Vehicule B</span></dt>
+                                        <dd>
+            <span *ngFor="let vehiculeB of constat.vehiculeBS; let last = last">
+                <a [routerLink]="['/vehicule', vehiculeB?.id ]">{{vehiculeB.id}}</a>{{last ? '' : ', '}}
+            </span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.sensSuiviB">Sens Suivi B</span></dt>
+                                        <dd>
+                                            <span>{{constat.sensSuiviB}}</span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.venantDeB">Venant De B</span></dt>
+                                        <dd>
+                                            <span>{{constat.venantDeB}}</span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <dt><span jhiTranslate="smartStatementApp.constat.allantAB">Allant AB</span></dt>
+                                        <dd>
+                                            <span>{{constat.allantAB}}</span>
+                                        </dd>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <dt><span jhiTranslate="smartStatementApp.constat.pointDeChocInitialB">Point De Choc Initial B</span></dt>
+                                        <dd>
+                                            <span>{{constat.pointDeChocInitialB}}</span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <dt><span jhiTranslate="smartStatementApp.constat.observationsB">Observations B</span></dt>
+                                        <dd>
+                                            <span>{{constat.observationsB}}</span>
+                                        </dd>
+
+                                    </td>
+                                </tr>
+
+                                </tbody>
+
+
+                            </table>
+                        </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+
+
+
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'constat/'+ constat.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

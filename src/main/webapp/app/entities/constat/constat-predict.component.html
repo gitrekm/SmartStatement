@@ -1,0 +1,154 @@
+
+
+
+<div>
+    <h2><span>Customer 360 view and Fraud Risk Evaluation</span> Predict 1</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Customer General informations</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h3><span>Customer</span> {{constatpredict.Customer}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>Country</span> {{constatpredict.Country}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>StateCode</span> {{constatpredict.StateCode}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>State</span> {{constatpredict.State}}</h3>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Customer Profile</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+
+                    <div>
+                        <h3><span>Education</span> {{constatpredict.Education}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>EmploymentStatus</span> {{constatpredict.EmploymentStatus}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>Gender</span> {{constatpredict.Gender}}</h3>
+                    </div>
+
+                    <div>
+                        <h3><span>Income</span> {{constatpredict.Income}}</h3>
+                    </div>
+
+                    <div>
+                        <h3><span>MaritalStatus</span> {{constatpredict.MaritalStatus}}</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Customer Insurance Contracts Details</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h3><span>Coverage</span> {{constatpredict.Coverage}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>NumberofPolicies</span> {{constatpredict.NumberofPolicies}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>MonthsSinceLastClaim</span> {{constatpredict.MonthsSinceLastClaim}}</h3>
+                    </div>
+                    <div>
+                        <h3><span>MonthsSincePolicyInception</span> {{constatpredict.MonthsSincePolicyInception}}</h3>
+                    </div>
+
+                    <div>
+                        <h3><span>NumberofOpenComplaints</span> {{constatpredict.NumberofOpenComplaints}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Fraud Prediction Value</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <h1><span>Proba de Fraud</span> {{constatpredict.predict}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Customer related informations  -->
+
+
+<!-- Other info related informations  -->
+
+
+
+
+
+<!-- Contract related informations  -->
+
+
+<!-- Fraud Evaluation  -->
+
+
+
+
+
+
+<div *ngIf="constat">
+    <h2><span >Constat</span> {{constatpredict.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'constat/'+ constat.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

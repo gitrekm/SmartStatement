@@ -1,0 +1,313 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myConstatLabel" jhiTranslate="smartStatementApp.constat.home.createOrEditLabel">Create or edit a Constat</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!constat.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="constat.id" readonly />
+        </div>
+
+
+
+
+        <table class="table table-striped">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="smartStatementApp.constat.dateConstat" for="field_dateConstat">Date Constat</label>
+                        <div class="d-flex">
+                            <input id="field_dateConstat" type="datetime-local" class="form-control" name="dateConstat" [(ngModel)]="constat.dateConstat"
+                            />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="smartStatementApp.constat.lieuConstat" for="field_lieuConstat">Lieu Constat</label>
+                        <input type="text" class="form-control" name="lieuConstat" id="field_lieuConstat"
+                               [(ngModel)]="constat.lieuConstat"  />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="smartStatementApp.constat.blesses" for="field_blesses">Blesses</label>
+                        <select class="form-control" name="blesses" [(ngModel)]="constat.blesses" id="field_blesses" >
+                            <option value="YES" jhiTranslate="smartStatementApp.YesNo.YES">YES</option>
+                            <option value="NO" jhiTranslate="smartStatementApp.YesNo.NO">NO</option>
+                        </select>
+                    </div>
+
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="smartStatementApp.constat.degats" for="field_degats">Degats</label>
+                        <select class="form-control" name="degats" [(ngModel)]="constat.degats" id="field_degats" >
+                            <option value="YES" jhiTranslate="smartStatementApp.YesNo.YES">YES</option>
+                            <option value="NO" jhiTranslate="smartStatementApp.YesNo.NO">NO</option>
+                        </select>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="smartStatementApp.constat.degatsApparent" for="field_degatsApparent">Degats Apparent</label>
+                        <select class="form-control" name="degatsApparent" [(ngModel)]="constat.degatsApparent" id="field_degatsApparent" >
+                            <option value="YES" jhiTranslate="smartStatementApp.YesNo.YES">YES</option>
+                            <option value="NO" jhiTranslate="smartStatementApp.YesNo.NO">NO</option>
+                        </select>
+                    </div>
+
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="smartStatementApp.constat.temoins" for="field_temoins">Temoins</label>
+                        <input type="text" class="form-control" name="temoins" id="field_temoins"
+                               [(ngModel)]="constat.temoins"  />
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+        <div class="form-group">
+            <label jhiTranslate="smartStatementApp.constat.circonstances" for="field_circonstances">Circonstances</label>
+            <select class="form-control" id="field_circonstances" name="circonstances" [(ngModel)]="constat.circonstances">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="circonstancesOption.id === constat.circonstances?.id ? constat.circonstances : circonstancesOption" *ngFor="let circonstancesOption of circonstances; trackBy: trackCirconstancesById">{{circonstancesOption.id}}</option>
+            </select>
+        </div>
+    </td>
+            </tr>
+            <tr>
+                        <td >
+                            <table class="table table-striped" style="background-color: #FCFE7C">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.assuranceA" for="field_assuranceA">Assurance A</label>
+                                            <select class="form-control" id="field_assuranceA" multiple name="assuranceA" [(ngModel)]="constat.assuranceAS">
+                                                <option [ngValue]="getSelected(constat.assuranceAS, assuranceOption)" *ngFor="let assuranceOption of assurances; trackBy: trackAssuranceById">{{assuranceOption.id}}</option>
+                                            </select>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.conducteurA" for="field_conducteurA">Conducteur A</label>
+                                            <select class="form-control" id="field_conducteurA" multiple name="conducteurA" [(ngModel)]="constat.conducteurAS">
+                                                <option [ngValue]="getSelected(constat.conducteurAS, conducteurOption)" *ngFor="let conducteurOption of conducteurs; trackBy: trackConducteurById">{{conducteurOption.id}}</option>
+                                            </select>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.assureeA" for="field_assureeA">Assuree A</label>
+                                            <select class="form-control" id="field_assureeA" multiple name="assureeA" [(ngModel)]="constat.assureeAS">
+                                                <option [ngValue]="getSelected(constat.assureeAS, assureeOption)" *ngFor="let assureeOption of assurees; trackBy: trackAssureeById">{{assureeOption.id}}</option>
+                                            </select>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.vehiculeA" for="field_vehiculeA">Vehicule A</label>
+                                            <select class="form-control" id="field_vehiculeA" multiple name="vehiculeA" [(ngModel)]="constat.vehiculeAS">
+                                                <option [ngValue]="getSelected(constat.vehiculeAS, vehiculeOption)" *ngFor="let vehiculeOption of vehicules; trackBy: trackVehiculeById">{{vehiculeOption.id}}</option>
+                                            </select>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.sensSuiviA" for="field_sensSuiviA">Sens Suivi A</label>
+                                            <input type="text" class="form-control" name="sensSuiviA" id="field_sensSuiviA"
+                                                   [(ngModel)]="constat.sensSuiviA"  />
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.venantDeA" for="field_venantDeA">Venant De A</label>
+                                            <input type="text" class="form-control" name="venantDeA" id="field_venantDeA"
+                                                   [(ngModel)]="constat.venantDeA"  />
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.allantAA" for="field_allantAA">Allant AA</label>
+                                            <input type="text" class="form-control" name="allantAA" id="field_allantAA"
+                                                   [(ngModel)]="constat.allantAA"  />
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.pointDeChocInitialA" for="field_pointDeChocInitialA">Point De Choc Initial A</label>
+                                            <input type="text" class="form-control" name="pointDeChocInitialA" id="field_pointDeChocInitialA"
+                                                   [(ngModel)]="constat.pointDeChocInitialA"  />
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.observationsA" for="field_observationsA">Observations A</label>
+                                            <input type="text" class="form-control" name="observationsA" id="field_observationsA"
+                                                   [(ngModel)]="constat.observationsA"  />
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </td>
+
+                        <td >
+                            <table class="table table-striped" style="background-color: #5CFE8C">
+                                <thead>
+                                </thead>
+                                <tbody>
+
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.assuranceB" for="field_assuranceB">Assurance B</label>
+                                            <select class="form-control" id="field_assuranceB" multiple name="assuranceB" [(ngModel)]="constat.assuranceBS">
+                                                <option [ngValue]="getSelected(constat.assuranceBS, assuranceOption)" *ngFor="let assuranceOption of assurances; trackBy: trackAssuranceById">{{assuranceOption.id}}</option>
+                                            </select>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.conducteurB" for="field_conducteurB">Conducteur B</label>
+                                            <select class="form-control" id="field_conducteurB" multiple name="conducteurB" [(ngModel)]="constat.conducteurBS">
+                                                <option [ngValue]="getSelected(constat.conducteurBS, conducteurOption)" *ngFor="let conducteurOption of conducteurs; trackBy: trackConducteurById">{{conducteurOption.id}}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.assureeB" for="field_assureeB">Assuree B</label>
+                                            <select class="form-control" id="field_assureeB" multiple name="assureeB" [(ngModel)]="constat.assureeBS">
+                                                <option [ngValue]="getSelected(constat.assureeBS, assureeOption)" *ngFor="let assureeOption of assurees; trackBy: trackAssureeById">{{assureeOption.id}}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label jhiTranslate="smartStatementApp.constat.vehiculeB" for="field_vehiculeB">Vehicule B</label>
+                                            <select class="form-control" id="field_vehiculeB" multiple name="vehiculeB" [(ngModel)]="constat.vehiculeBS">
+                                                <option [ngValue]="getSelected(constat.vehiculeBS, vehiculeOption)" *ngFor="let vehiculeOption of vehicules; trackBy: trackVehiculeById">{{vehiculeOption.id}}</option>
+                                            </select>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.sensSuiviB" for="field_sensSuiviB">Sens Suivi B</label>
+                                            <input type="text" class="form-control" name="sensSuiviB" id="field_sensSuiviB"
+                                                   [(ngModel)]="constat.sensSuiviB"  />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.venantDeB" for="field_venantDeB">Venant De B</label>
+                                            <input type="text" class="form-control" name="venantDeB" id="field_venantDeB"
+                                                   [(ngModel)]="constat.venantDeB"  />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.allantAB" for="field_allantAB">Allant AB</label>
+                                            <input type="text" class="form-control" name="allantAB" id="field_allantAB"
+                                                   [(ngModel)]="constat.allantAB"  />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.pointDeChocInitialB" for="field_pointDeChocInitialB">Point De Choc Initial B</label>
+                                            <input type="text" class="form-control" name="pointDeChocInitialB" id="field_pointDeChocInitialB"
+                                                   [(ngModel)]="constat.pointDeChocInitialB"  />
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="form-control-label" jhiTranslate="smartStatementApp.constat.observationsB" for="field_observationsB">Observations B</label>
+                                            <input type="text" class="form-control" name="observationsB" id="field_observationsB"
+                                                   [(ngModel)]="constat.observationsB"  />
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+                <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+
+
+
+</form>

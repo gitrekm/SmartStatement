@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatPartA",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "assuranceA"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatPartB",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "assuranceB"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nomAssurance",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numAssurnance",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "agence",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valableAu",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170731174833",
+    "entityTableName": "assurance",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,9 @@
+{
+    "smartStatementApp": {
+        "YesNo" : {
+            "null": "",
+            "YES": "YES",
+            "NO": "NO"
+        }
+    }
+}

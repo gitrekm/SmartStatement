@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Constat.
+    -->
+    <changeSet id="20170731174830-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="circonstances_id"
+                                 baseTableName="constat"
+                                 constraintName="fk_constat_circonstances_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="circonstances"/>
+
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_conducteura"
+                                 constraintName="fk_constat_conducteura_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="conducteuras_id"
+                                 baseTableName="constat_conducteura"
+                                 constraintName="fk_constat_conducteura_conducteuras_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conducteur"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_conducteurb"
+                                 constraintName="fk_constat_conducteurb_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="conducteurbs_id"
+                                 baseTableName="constat_conducteurb"
+                                 constraintName="fk_constat_conducteurb_conducteurbs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conducteur"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_vehiculea"
+                                 constraintName="fk_constat_vehiculea_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="vehiculeas_id"
+                                 baseTableName="constat_vehiculea"
+                                 constraintName="fk_constat_vehiculea_vehiculeas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicule"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_vehiculeb"
+                                 constraintName="fk_constat_vehiculeb_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="vehiculebs_id"
+                                 baseTableName="constat_vehiculeb"
+                                 constraintName="fk_constat_vehiculeb_vehiculebs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicule"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_assurancea"
+                                 constraintName="fk_constat_assurancea_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="assuranceas_id"
+                                 baseTableName="constat_assurancea"
+                                 constraintName="fk_constat_assurancea_assuranceas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assurance"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_assuranceb"
+                                 constraintName="fk_constat_assuranceb_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="assurancebs_id"
+                                 baseTableName="constat_assuranceb"
+                                 constraintName="fk_constat_assuranceb_assurancebs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assurance"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_assureea"
+                                 constraintName="fk_constat_assureea_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="assureeas_id"
+                                 baseTableName="constat_assureea"
+                                 constraintName="fk_constat_assureea_assureeas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assuree"/>
+        
+        <addForeignKeyConstraint baseColumnNames="constats_id"
+                                 baseTableName="constat_assureeb"
+                                 constraintName="fk_constat_assureeb_constats_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="constat"/>
+        <addForeignKeyConstraint baseColumnNames="assureebs_id"
+                                 baseTableName="constat_assureeb"
+                                 constraintName="fk_constat_assureeb_assureebs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assuree"/>
+        
+    </changeSet>
+</databaseChangeLog>

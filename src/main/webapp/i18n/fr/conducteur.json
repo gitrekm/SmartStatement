@@ -1,0 +1,31 @@
+{
+    "smartStatementApp": {
+        "conducteur" : {
+            "home": {
+                "title": "Conducteurs",
+                "createLabel": "Créer un nouveau Conducteur",
+                "createOrEditLabel": "Créer ou éditer un Conducteur",
+                "search": "Recherche pour Conducteur"
+            },
+            "created": "Un nouveau Conducteur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Conducteur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Conducteur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Conducteur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Conducteur"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "email": "Email",
+            "tel": "Tel",
+            "permisNum": "Permis Num",
+            "livreeLe": "Livree Le",
+            "addresse": "Addresse",
+            "constatA": "Constat A",
+            "constatB": "Constat B",
+            "vehicule": "Vehicule"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "constat",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "circonstances"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "circonstance",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170731174835",
+    "entityTableName": "circonstances",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

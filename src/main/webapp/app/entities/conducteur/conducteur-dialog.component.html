@@ -1,0 +1,62 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myConducteurLabel" jhiTranslate="smartStatementApp.conducteur.home.createOrEditLabel">Create or edit a Conducteur</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!conducteur.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="conducteur.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.nom" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                [(ngModel)]="conducteur.nom"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.prenom" for="field_prenom">Prenom</label>
+            <input type="text" class="form-control" name="prenom" id="field_prenom"
+                [(ngModel)]="conducteur.prenom"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="conducteur.email"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.tel" for="field_tel">Tel</label>
+            <input type="text" class="form-control" name="tel" id="field_tel"
+                [(ngModel)]="conducteur.tel"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.permisNum" for="field_permisNum">Permis Num</label>
+            <input type="number" class="form-control" name="permisNum" id="field_permisNum"
+                [(ngModel)]="conducteur.permisNum"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.livreeLe" for="field_livreeLe">Livree Le</label>
+            <div class="d-flex">
+                <input id="field_livreeLe" type="datetime-local" class="form-control" name="livreeLe" [(ngModel)]="conducteur.livreeLe"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartStatementApp.conducteur.addresse" for="field_addresse">Addresse</label>
+            <input type="text" class="form-control" name="addresse" id="field_addresse"
+                [(ngModel)]="conducteur.addresse"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

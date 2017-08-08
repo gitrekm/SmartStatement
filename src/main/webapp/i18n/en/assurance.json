@@ -1,0 +1,27 @@
+{
+    "smartStatementApp": {
+        "assurance" : {
+            "home": {
+                "title": "Assurances",
+                "createLabel": "Create a new Assurance",
+                "createOrEditLabel": "Create or edit a Assurance",
+                "search": "Search for Assurance"
+            },
+            "created": "A new Assurance is created with identifier {{ param }}",
+            "updated": "A Assurance is updated with identifier {{ param }}",
+            "deleted": "A Assurance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Assurance {{ id }}?"
+            },
+            "detail": {
+                "title": "Assurance"
+            },
+            "nomAssurance": "Nom Assurance",
+            "numAssurnance": "Num Assurnance",
+            "agence": "Agence",
+            "valableAu": "Valable Au",
+            "constatPartA": "Constat Part A",
+            "constatPartB": "Constat Part B"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+
+<div *ngIf="conducteur">
+    <h2><span jhiTranslate="smartStatementApp.conducteur.detail.title">Conducteur</span> {{conducteur.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartStatementApp.conducteur.nom">Nom</span></dt>
+        <dd>
+            <span>{{conducteur.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.conducteur.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{conducteur.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.conducteur.email">Email</span></dt>
+        <dd>
+            <span>{{conducteur.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.conducteur.tel">Tel</span></dt>
+        <dd>
+            <span>{{conducteur.tel}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.conducteur.permisNum">Permis Num</span></dt>
+        <dd>
+            <span>{{conducteur.permisNum}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.conducteur.livreeLe">Livree Le</span></dt>
+        <dd>
+            <span>{{conducteur.livreeLe | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.conducteur.addresse">Addresse</span></dt>
+        <dd>
+            <span>{{conducteur.addresse}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'conducteur/'+ conducteur.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

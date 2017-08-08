@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Constat.
+    -->
+    <changeSet id="20170731174830-1" author="jhipster">
+        <createTable tableName="constat">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date_constat" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="lieu_constat" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="temoins" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="degats" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="degats_apparent" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="blesses" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="point_de_choc_initial_a" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="observations_a" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="point_de_choc_initial_b" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="observations_b" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sens_suivi_a" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="venant_de_a" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="allant_aa" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sens_suivi_b" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="venant_de_b" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="allant_ab" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="circonstances_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="constat" columnName="date_constat" columnDataType="datetime"/>
+        
+        <createTable tableName="constat_conducteura">
+            <column name="conducteuras_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, conducteuras_id" tableName="constat_conducteura"/>
+        
+        <createTable tableName="constat_conducteurb">
+            <column name="conducteurbs_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, conducteurbs_id" tableName="constat_conducteurb"/>
+        
+        <createTable tableName="constat_vehiculea">
+            <column name="vehiculeas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, vehiculeas_id" tableName="constat_vehiculea"/>
+        
+        <createTable tableName="constat_vehiculeb">
+            <column name="vehiculebs_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, vehiculebs_id" tableName="constat_vehiculeb"/>
+        
+        <createTable tableName="constat_assurancea">
+            <column name="assuranceas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, assuranceas_id" tableName="constat_assurancea"/>
+        
+        <createTable tableName="constat_assuranceb">
+            <column name="assurancebs_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, assurancebs_id" tableName="constat_assuranceb"/>
+        
+        <createTable tableName="constat_assureea">
+            <column name="assureeas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, assureeas_id" tableName="constat_assureea"/>
+        
+        <createTable tableName="constat_assureeb">
+            <column name="assureebs_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constats_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="constats_id, assureebs_id" tableName="constat_assureeb"/>
+        
+    </changeSet>
+</databaseChangeLog>

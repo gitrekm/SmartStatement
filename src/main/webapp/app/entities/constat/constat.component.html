@@ -1,0 +1,125 @@
+<div>
+    <h2>
+        <span jhiTranslate="smartStatementApp.constat.home.title">Constats</span>
+        <button class="btn btn-primary float-right jh-create-entity create-constat" [routerLink]="['/', { outlets: { popup: ['constat-new'] } }]">
+
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="smartStatementApp.constat.home.createLabel">
+            Create new Constat
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'smartStatementApp.constat.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="constats">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.dateConstat">Date Constat</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.lieuConstat">Lieu Constat</span></th>
+
+            <th><span jhiTranslate="smartStatementApp.constat.degats">Degats</span></th>
+
+            <th><span jhiTranslate="smartStatementApp.constat.blesses">Blesses</span></th>
+
+            <th><span jhiTranslate="smartStatementApp.constat.conducteurA">Conducteur A</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.conducteurB">Conducteur B</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.vehiculeA">Vehicule A</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.vehiculeB">Vehicule B</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.assuranceA">Assurance A</span></th>
+            <th><span jhiTranslate="smartStatementApp.constat.assuranceB">Assurance B</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let constat of constats ;trackBy: trackId">
+                <td><a [routerLink]="['../constat', constat.id ]">{{constat.id}}</a></td>
+                <td>{{constat.dateConstat | date:'medium'}}</td>
+                <td>{{constat.lieuConstat}}</td>
+
+                <td jhiTranslate="{{'smartStatementApp.YesNo.' + constat.degats}}">{{constat.degats}}</td>
+
+                <td jhiTranslate="{{'smartStatementApp.YesNo.' + constat.blesses}}">{{constat.blesses}}</td>
+                <td>
+                    <span *ngFor="let conducteurA of constat.conducteurAS; let last = last">
+                            <a class="form-control-static" [routerLink]="['../conducteur', conducteurA?.id ]">{{conducteurA.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let conducteurB of constat.conducteurBS; let last = last">
+                            <a class="form-control-static" [routerLink]="['../conducteur', conducteurB?.id ]">{{conducteurB.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let vehiculeA of constat.vehiculeAS; let last = last">
+                            <a class="form-control-static" [routerLink]="['../vehicule', vehiculeA?.id ]">{{vehiculeA.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let vehiculeB of constat.vehiculeBS; let last = last">
+                            <a class="form-control-static" [routerLink]="['../vehicule', vehiculeB?.id ]">{{vehiculeB.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let assuranceA of constat.assuranceAS; let last = last">
+                            <a class="form-control-static" [routerLink]="['../assurance', assuranceA?.id ]">{{assuranceA.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let assuranceB of constat.assuranceBS; let last = last">
+                            <a class="form-control-static" [routerLink]="['../assurance', assuranceB?.id ]">{{assuranceB.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../constat', constat.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'constat/'+ constat.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'constat/'+ constat.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    [routerLink]="['../predict/', constat.id ]"
+                                    class="btn btn-info btn-sm">
+                                <span class="fa fa-eye"></span>
+                                <span class="hidden-md-down" jhiTranslate="entity.action.predict">predict</span>
+                            </button>
+
+                        </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

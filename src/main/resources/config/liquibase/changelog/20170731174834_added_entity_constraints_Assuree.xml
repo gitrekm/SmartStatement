@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Assuree.
+    -->
+    <changeSet id="20170731174834-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="vehicule_id"
+                                 baseTableName="assuree"
+                                 constraintName="fk_assuree_vehicule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicule"/>
+
+        <addForeignKeyConstraint baseColumnNames="vehicle_conducteur_id"
+                                 baseTableName="assuree"
+                                 constraintName="fk_assuree_vehicle_conducteur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vehicule"/>
+
+    </changeSet>
+</databaseChangeLog>

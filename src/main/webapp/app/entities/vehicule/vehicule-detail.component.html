@@ -1,0 +1,39 @@
+
+<div *ngIf="vehicule">
+    <h2><span jhiTranslate="smartStatementApp.vehicule.detail.title">Vehicule</span> {{vehicule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartStatementApp.vehicule.marque">Marque</span></dt>
+        <dd>
+            <span>{{vehicule.marque}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.vehicule.type">Type</span></dt>
+        <dd>
+            <span>{{vehicule.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.vehicule.immatriculation">Immatriculation</span></dt>
+        <dd>
+            <span>{{vehicule.immatriculation}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartStatementApp.vehicule.nom">Nom</span></dt>
+        <dd>
+            <span *ngFor="let nom of vehicule.noms; let last = last">
+                <a [routerLink]="['/conducteur', nom?.id ]">{{nom.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vehicule/'+ vehicule.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

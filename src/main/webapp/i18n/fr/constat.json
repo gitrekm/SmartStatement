@@ -1,0 +1,46 @@
+{
+    "smartStatementApp": {
+        "constat" : {
+            "home": {
+                "title": "Constats",
+                "createLabel": "Créer un nouveau Constat",
+                "createOrEditLabel": "Créer ou éditer un Constat",
+                "search": "Recherche pour Constat"
+            },
+            "created": "Un nouveau Constat a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Constat avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Constat avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Constat {{ id }} ?"
+            },
+            "detail": {
+                "title": "Constat"
+            },
+            "dateConstat": "Date Constat",
+            "lieuConstat": "Lieu Constat",
+            "temoins": "Temoins",
+            "degats": "Degats",
+            "degatsApparent": "Degats Apparent",
+            "blesses": "Blesses",
+            "pointDeChocInitialA": "Point De Choc Initial A",
+            "observationsA": "Observations A",
+            "pointDeChocInitialB": "Point De Choc Initial B",
+            "observationsB": "Observations B",
+            "sensSuiviA": "Sens Suivi A",
+            "venantDeA": "Venant De A",
+            "allantAA": "Allant AA",
+            "sensSuiviB": "Sens Suivi B",
+            "venantDeB": "Venant De B",
+            "allantAB": "Allant AB",
+            "circonstances": "Circonstances",
+            "conducteurA": "Conducteur A",
+            "conducteurB": "Conducteur B",
+            "vehiculeA": "Vehicule A",
+            "vehiculeB": "Vehicule B",
+            "assuranceA": "Assurance A",
+            "assuranceB": "Assurance B",
+            "assureeA": "Assuree A",
+            "assureeB": "Assuree B"
+        }
+    }
+}

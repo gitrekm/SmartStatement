@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "vehicule",
+            "relationshipName": "nom",
+            "otherEntityName": "conducteur",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "assuree",
+            "otherEntityName": "assuree",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "vehicule"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "conducteur",
+            "otherEntityName": "assuree",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "vehicleConducteur"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatPartA",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "vehiculeA"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatPartB",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "vehiculeB"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "marque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "immatriculation",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170731174831",
+    "entityTableName": "vehicule",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

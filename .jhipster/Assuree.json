@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "vehicule",
+            "otherEntityName": "vehicule",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "assuree"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "vehicleConducteur",
+            "otherEntityName": "vehicule",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "conducteur"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatPartA",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "assureeA"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatPartB",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "assureeB"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nomAssuree",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenomsAssuree",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addresse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numTel",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170731174834",
+    "entityTableName": "assuree",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

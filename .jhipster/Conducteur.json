@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatA",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "conducteurA"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "constatB",
+            "otherEntityName": "constat",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "conducteurB"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "vehicule",
+            "otherEntityName": "vehicule",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "nom"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "permisNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "livreeLe",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "addresse",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170731174832",
+    "entityTableName": "conducteur",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

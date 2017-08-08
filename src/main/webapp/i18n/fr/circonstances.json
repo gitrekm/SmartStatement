@@ -1,0 +1,24 @@
+{
+    "smartStatementApp": {
+        "circonstances" : {
+            "home": {
+                "title": "Circonstances",
+                "createLabel": "Créer un nouveau Circonstances",
+                "createOrEditLabel": "Créer ou éditer un Circonstances",
+                "search": "Recherche pour Circonstances"
+            },
+            "created": "Un nouveau Circonstances a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Circonstances avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Circonstances avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Circonstances {{ id }} ?"
+            },
+            "detail": {
+                "title": "Circonstances"
+            },
+            "circonstance": "Circonstance",
+            "description": "Description",
+            "constat": "Constat"
+        }
+    }
+}
